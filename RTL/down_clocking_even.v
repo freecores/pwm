@@ -1,6 +1,4 @@
-/*Author: Zhuxu
-	m99a1@yahoo.cn
-Down clocking module
+/*Down clocking module
 Output clock frequency is the original frequency divided by an even number
 */
 module	down_clocking_even(
@@ -23,7 +21,7 @@ wire	go;
 assign	go=((i_divisor!=0)&&i_rst);
 reg	[15:0]ct;
 reg	clk;
-always@(posedge i_clk or i_rst)
+always@(posedge i_clk or negedge i_rst)
 	if(!i_rst)begin
 		ct<=0;
 		clk<=0;
